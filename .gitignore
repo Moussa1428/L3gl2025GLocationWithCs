@@ -1,0 +1,28 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build
+bin/
+obj/
+packages/
+*.log
+
+# Rider / JetBrains
+.idea/
+
+# Test results
+TestResults/
+
+# Système
+*.DS_Store
+Thumbs.db
+desktop.ini
+
+# NuGet
+*.nupkg
+project.lock.json
+
+# Windows
+*.lnk
