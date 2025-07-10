@@ -30,10 +30,84 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddProprietaire">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="proprietaire" nillable="true" type="q3:Proprietaire" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddProprietaireResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddProprietaireResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListeProprietaires">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="telephone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ninea" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rccm" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListeProprietairesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="GetListeProprietairesResult" nillable="true" type="q4:ArrayOfProprietaire" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProprietaireById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProprietaireByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="GetProprietaireByIdResult" nillable="true" type="q5:Proprietaire" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProprietaire">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="proprietaire" nillable="true" type="q6:Proprietaire" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteProprietaireResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteProprietaireResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProprietaire">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="proprietaire" nillable="true" type="q7:Proprietaire" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProprietaireResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateProprietaireResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddAppartement">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="appartement" nillable="true" type="q3:Appartement" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="appartement" nillable="true" type="q8:Appartement" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -47,7 +121,7 @@
   <xs:element name="AddUtilisateur">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="utilisateur" nillable="true" type="q4:Utilisateur" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="utilisateur" nillable="true" type="q9:Utilisateur" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -70,7 +144,7 @@
   <xs:element name="GetListeAppartementResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="GetListeAppartementResult" nillable="true" type="q5:ArrayOfAppartement" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="GetListeAppartementResult" nillable="true" type="q10:ArrayOfAppartement" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -87,7 +161,35 @@
   <xs:element name="GetListUtilisateursResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="GetListUtilisateursResult" nillable="true" type="q6:ArrayOfUtilisateur" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="GetListUtilisateursResult" nillable="true" type="q11:ArrayOfUtilisateur" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUtilisateurById">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUtilisateurByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="GetUtilisateurByIdResult" nillable="true" type="q12:Utilisateur" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListAppartementByUserId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetListAppartementByUserIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="GetListAppartementByUserIdResult" nillable="true" type="q13:ArrayOfAppartement" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -101,14 +203,14 @@
   <xs:element name="GetAppartementByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="GetAppartementByIdResult" nillable="true" type="q7:Appartement" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="GetAppartementByIdResult" nillable="true" type="q14:Appartement" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteAppartement">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="appartement" nillable="true" type="q8:Appartement" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="appartement" nillable="true" type="q15:Appartement" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -122,7 +224,7 @@
   <xs:element name="DeleteUtilisateur">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="utilisateur" nillable="true" type="q9:Utilisateur" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="utilisateur" nillable="true" type="q16:Utilisateur" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -136,7 +238,7 @@
   <xs:element name="UpdateAppartement">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="appartement" nillable="true" type="q10:Appartement" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="appartement" nillable="true" type="q17:Appartement" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -144,6 +246,20 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="UpdateAppartementResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUtilisateur">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/MetierGestion.Model" minOccurs="0" name="utilisateur" nillable="true" type="q18:Utilisateur" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUtilisateurResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateUtilisateurResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -20,52 +20,86 @@ namespace Gestion.View
         }
 
         MetierGestion.Service1Client service = new MetierGestion.Service1Client();
+        MetierGestion.Service1Client service2 = new MetierGestion.Service1Client();
         BdAppartementContext db=new BdAppartementContext();
         Helper helper = new Helper();
 
+        private void ChargerComboBoxProprietaires()
+        {
+            var proprietaires = service2.GetListeProprietaires(
+                string.Empty, string.Empty, string.Empty, string.Empty, string.Empty
+            );
+
+            cbbProprietaire.DataSource = proprietaires;
+            cbbProprietaire.DisplayMember = "NomPrenom";  
+            cbbProprietaire.ValueMember = "IdPersonne";    
+        }
         private void ResetForm()
         {
             txtAdresse.Text= string.Empty;
             txtCapacite.Text= string.Empty;
             txtNombrePiece.Text= string.Empty;
             txtSurface.Text= string.Empty;
-            cbbDisponible.Text = "Selectionnez...";
+            cbbDisponible.Text = "-- Sélectionnez un propriétaire --";
             cbbProprietaire.DataSource = LoadCbbProprietaire().ToList();
             cbbProprietaire.DisplayMember = "Text";
             cbbProprietaire.ValueMember = "Value";
-            dgAppartement.DataSource = service.GetListeAppartement(null, null, null).Select(a => new { a.IdAppartement, a.IdProprietaire, a.Proprietaire.NomPrenom, a.NombrePiece, a.Capacite, a.Surface, a.Disponible }).ToList();//db.appartements.Select(a => new { a.IdAppartement, a.IdProprietaire, a.Proprietaire.NomPrenom, a.NombrePiece, a.Capacite, a.Surface, a.Disponible }).ToList();
+
+            dgAppartement.DataSource = service.GetListeAppartement(string.Empty, null, null)
+                .Select(a => new
+                {
+                    a.IdAppartement,
+                    Adresse = a.AdresseAppartement,
+                    Proprietaire = a.Proprietaire.NomPrenom,
+                    a.Capacite,
+                    a.NombrePiece,
+                    a.Surface,
+                    Disponible = a.Disponible ? "Oui" : "Non"
+                })
+                .ToList();
+
+
+            if (dgAppartement.Columns.Contains("IdAppartement"))
+            {
+                dgAppartement.Columns["IdAppartement"].Visible = false;
+            }
             txtAdresse.Focus();
         }
 
         private List<ListSelectionViewModel> LoadCbbProprietaire()
         {
-            var liste = db.proprietaires.ToList();
-            
-            
-            List<ListSelectionViewModel> list = new List<ListSelectionViewModel>();
-            ListSelectionViewModel a= new ListSelectionViewModel();
-            a.Text = "Selectionnez....";
-            a.Value=string.Empty;
-            list.Add(a);
+            var liste = service2.GetListeProprietaires(string.Empty, string.Empty, string.Empty, string.Empty, string.Empty).ToList();
 
-            foreach (var item in liste)
-            {
-                ListSelectionViewModel b = new ListSelectionViewModel();
-                b.Text = item.NomPrenom;
-                b.Value = item.IdPersonne.ToString();
-                list.Add(b);
-            }
+            var list = new List<ListSelectionViewModel>
+                {
+                    new ListSelectionViewModel
+                    {
+                        Text = "-- Sélectionnez un propriétaire --",
+                        Value = string.Empty
+                    }
+                };
 
+                list.AddRange(liste.Select(p => new ListSelectionViewModel
+                {
+                    Text = $"{p.NomPrenom}-Tel  {p.Telephone} ",
+                    Value = p.IdPersonne.ToString()
+                }));
             return list;
         }
 
         private void frmAppartement_Load(object sender, EventArgs e)
         {
+            ChargerComboBoxProprietaires();
             ResetForm();
         }
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrEmpty(cbbProprietaire.SelectedValue?.ToString()) || cbbProprietaire.SelectedValue.ToString() == "0")
+            {
+                MessageBox.Show("Veuillez sélectionner un propriétaire.", "Attention", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             try
             {
                 MetierGestion.Appartement a = new MetierGestion.Appartement();
@@ -76,8 +110,7 @@ namespace Gestion.View
                 a.AdresseAppartement = txtAdresse.Text;
                 a.IdProprietaire = int.Parse(cbbProprietaire.SelectedValue.ToString());
                 service.AddAppartement(a);
-                //db.appartements.Add(a);
-                //db.SaveChanges();
+                MessageBox.Show("Appartement ajouté avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception ex)
             {
@@ -87,8 +120,6 @@ namespace Gestion.View
             {
                 ResetForm();
             }
-            
-            
         }
 
         private void btnModifier_Click(object sender, EventArgs e)
@@ -143,5 +174,6 @@ namespace Gestion.View
             frm.Appartement = string.Format("Adresse");
             frm.Show();
         }
+       
     }
 }

@@ -20,6 +20,17 @@ namespace MetierGestion
 		[OperationContract]
 		CompositeType GetDataUsingDataContract(CompositeType composite);
 
+		[OperationContract]
+		bool AddProprietaire(Proprietaire proprietaire);
+
+		[OperationContract]
+		List<Proprietaire> GetListeProprietaires(string nom, string telephone, string email, string ninea, string rccm);
+		[OperationContract]
+		Proprietaire GetProprietaireById(int? id);
+		[OperationContract]
+		bool DeleteProprietaire(Proprietaire proprietaire);
+		[OperationContract]
+		bool UpdateProprietaire(Proprietaire proprietaire);
         [OperationContract]
         bool AddAppartement(Appartement appartement);
 
@@ -28,13 +39,14 @@ namespace MetierGestion
 
         [OperationContract]
         List<Appartement>  GetListeAppartement(string adresse, float? capacite, bool? disponible);
-		
-		
-		[OperationContract]
+
+        [OperationContract]
 		List<Utilisateur> GetListUtilisateurs(string nom, string identifiant, string email, string telephone);
-       
-		
 		[OperationContract]
+		Utilisateur GetUtilisateurById(int? id);
+		[OperationContract]
+		List<Appartement> GetListAppartementByUserId(int? id);
+        [OperationContract]
         Appartement GetAppartementById(int? id);
 
         [OperationContract]
@@ -44,6 +56,8 @@ namespace MetierGestion
 		bool DeleteUtilisateur(Utilisateur utilisateur);
 		[OperationContract]
 		bool UpdateAppartement(Appartement appartement);
+		[OperationContract]
+		bool UpdateUtilisateur(Utilisateur utilisateur);
         // TODO: ajoutez vos opérations de service ici
     }
 

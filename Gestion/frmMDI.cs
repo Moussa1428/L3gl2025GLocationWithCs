@@ -34,18 +34,22 @@ namespace Gestion
 
         private void frmMDI_Load(object sender, EventArgs e)
         {
-            if(profil=="Admin")
-            {
-                parametreToolStripMenuItem.Visible = false;
-            }
-            else if(profil=="Gestionnaire")
-            {
-                securiteToolStripMenuItem.Visible = false;
-            }
-            Computer myComputer = new Computer();
-            this.Width = myComputer.Screen.Bounds.Width;
-            this.Height = myComputer.Screen.Bounds.Height;
-            this.Location = new Point(0, 0);
+            //if(profil=="Admin")
+            //{
+            //    parametreToolStripMenuItem.Visible = false;
+            //}
+            //else if(profil=="Gestionnaire")
+            //{
+            //    securiteToolStripMenuItem.Visible = false;
+            //}
+            Computer computer = new Computer();
+            this.components = new System.ComponentModel.Container();
+            this.WindowState = FormWindowState.Maximized;
+            this.IsMdiContainer = true;
+            this.BackColor = Color.White;
+            this.Text = "Gestion Location";
+            menuStrip1.BackColor = Color.White;
+            menuStrip1.Font = new Font("Bell MT", 14, FontStyle.Bold);
 
         }
         private void fermer()
@@ -66,7 +70,10 @@ namespace Gestion
             frmProprietaire f = new frmProprietaire();
             f.MdiParent = this;
             f.Show();
-            f.WindowState = FormWindowState.Maximized;
+            f.BackColor = Color.White;
+            f.WindowState = FormWindowState.Normal;
+            f.FormBorderStyle = FormBorderStyle.None;
+            f.Dock = DockStyle.Fill;
         }
 
         private void appartementToolStripMenuItem_Click(object sender, EventArgs e)
@@ -75,7 +82,10 @@ namespace Gestion
             frmAppartement f = new frmAppartement();
             f.MdiParent = this;
             f.Show();
-            f.WindowState = FormWindowState.Maximized;
+            f.BackColor = Color.White;
+            f.WindowState = FormWindowState.Normal;
+            f.FormBorderStyle = FormBorderStyle.None;
+            f.Dock = DockStyle.Fill;
         }
 
         private void utilisateurToolStripMenuItem_Click(object sender, EventArgs e)
@@ -84,7 +94,16 @@ namespace Gestion
             frmUtilisateur f = new frmUtilisateur();
             f.MdiParent = this;
             f.Show();
-            f.WindowState = FormWindowState.Maximized;
+            f.BackColor = Color.White;
+            f.WindowState = FormWindowState.Normal;
+            f.FormBorderStyle = FormBorderStyle.None;
+            f.Dock = DockStyle.Fill;
+
+        }
+
+        private void securiteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

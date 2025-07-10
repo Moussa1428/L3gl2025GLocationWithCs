@@ -14,7 +14,6 @@ namespace MetierGestion.Model
 
         [Required, MaxLength(20)]
         public string Rccm { get; set; }
-
-        public virtual ICollection<Appartement> Appartements { get; set; }
+       
     }
 }

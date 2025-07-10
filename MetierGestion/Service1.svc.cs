@@ -18,6 +18,7 @@ namespace MetierGestion
 	{
 		AppartementServicejwt Servicejwt = new AppartementServicejwt();
 		UtilisateurServiceJwt ServiceJwtUtilisateur = new UtilisateurServiceJwt();
+        ProprietaireServicejwt ServicejwtProprietaire = new ProprietaireServicejwt();
 
         public bool AddAppartement(Appartement appartement)
         {
@@ -51,8 +52,6 @@ namespace MetierGestion
         {
             return ServiceJwtUtilisateur.GetListUtilisateurService(nom, identifiant, email, telephone);
         }
-
-
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -69,5 +68,50 @@ namespace MetierGestion
             }
             return composite;
         }
-    }
+        public Utilisateur GetUtilisateurById(int? id)
+        {
+            return ServiceJwtUtilisateur.GetUtilisateurByIdService((int)id);
+        }
+        public List<Appartement> GetListAppartementByUserId(int? id)
+        {
+            throw new NotImplementedException();
+        }
+        public bool UpdateUtilisateur(Utilisateur utilisateur)
+        {
+            return ServiceJwtUtilisateur.UpdateUtilisateurService(utilisateur);
+        }
+
+
+        public bool AddProprietaire(Proprietaire proprietaire)
+        {
+            return ServicejwtProprietaire.AddProprietaireService(proprietaire);
+        }
+        public List<Proprietaire> GetListeProprietaires(string nom, string telephone, string email, string ninea, string rccm)
+        {
+            return ServicejwtProprietaire.GetListProprietaireService(nom, telephone, email, ninea, rccm);
+        }
+        public Proprietaire GetProprietaireById(int? id)
+        {
+            return ServicejwtProprietaire.GetProprietaireByIdService((int)id);
+        }
+        public bool DeleteProprietaire(Proprietaire proprietaire)
+        {
+            return ServicejwtProprietaire.DeleteProprietaireService(proprietaire);
+        }
+        public bool UpdateProprietaire(Proprietaire proprietaire)
+        {
+            return ServicejwtProprietaire.UpdateProprietaireService(proprietaire);
+        }
+
+
+
+
+
+
+
+
+
+
+
+        }
 }

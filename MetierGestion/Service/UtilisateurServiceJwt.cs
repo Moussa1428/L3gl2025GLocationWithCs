@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using MetierGestion.Model;
@@ -11,6 +12,11 @@ namespace MetierGestion.Service
     {
         BdAppartementContext BD = new BdAppartementContext();
         Helper helper = new Helper();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="utilisateur"></param>
+        /// <returns></returns>
         public bool AddUser(Utilisateur utilisateur)
         {
             try
@@ -23,6 +29,11 @@ namespace MetierGestion.Service
             }
             return true;
         }
+        /// <summary>
+        ///     
+        /// </summary>
+        /// <param name="utilisateur"></param>
+        /// <returns></returns>
         public bool DeleteUtilisateurService(Utilisateur utilisateur)
         {
             try
@@ -37,6 +48,14 @@ namespace MetierGestion.Service
             }
             return true;
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nom"></param>
+        /// <param name="identifiant"></param>
+        /// <param name="email"></param>
+        /// <param name="telephone"></param>
+        /// <returns></returns>
         public List<Utilisateur> GetListUtilisateurService(string nom,string identifiant ,string email,string telephone)
         {
             var liste = BD.Utilisateurs.ToList();
@@ -57,8 +76,36 @@ namespace MetierGestion.Service
             }
             return liste;
         }
-
-
-
+        /// <summary>
+        /// /
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public Utilisateur GetUtilisateurByIdService(int id)
+        {
+            return BD.Utilisateurs.FirstOrDefault(a => a.IdPersonne == id); 
+        }
+        /// <summary>
+        /// /
+        /// </summary>
+        /// <param name="utilisateur"></param>
+        /// <returns></returns>
+        public bool UpdateUtilisateurService(Utilisateur utilisateur)
+        {
+            // Implémentez la logique pour mettre à jour un utilisateur
+            try
+            {
+                BD.Entry(utilisateur).State = EntityState.Modified;
+                BD.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                helper.WriteDataError("UtilisateurService-UpdateUtilisateur", ex.ToString());
+                return false;
+            }
+            return true;
+        }
+    
+    
     }
 }

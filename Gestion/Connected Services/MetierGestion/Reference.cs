@@ -76,6 +76,195 @@ namespace Gestion.MetierGestion {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Personne", Namespace="http://schemas.datacontract.org/2004/07/MetierGestion.Model")]
+    [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Gestion.MetierGestion.Utilisateur))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Gestion.MetierGestion.Proprietaire))]
+    public partial class Personne : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdPersonneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NomPrenomField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TelephoneField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdPersonne {
+            get {
+                return this.IdPersonneField;
+            }
+            set {
+                if ((this.IdPersonneField.Equals(value) != true)) {
+                    this.IdPersonneField = value;
+                    this.RaisePropertyChanged("IdPersonne");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NomPrenom {
+            get {
+                return this.NomPrenomField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NomPrenomField, value) != true)) {
+                    this.NomPrenomField = value;
+                    this.RaisePropertyChanged("NomPrenom");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Telephone {
+            get {
+                return this.TelephoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelephoneField, value) != true)) {
+                    this.TelephoneField = value;
+                    this.RaisePropertyChanged("Telephone");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Utilisateur", Namespace="http://schemas.datacontract.org/2004/07/MetierGestion.Model")]
+    [System.SerializableAttribute()]
+    public partial class Utilisateur : Gestion.MetierGestion.Personne {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IdentifiantField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MotDePasseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatutField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Identifiant {
+            get {
+                return this.IdentifiantField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IdentifiantField, value) != true)) {
+                    this.IdentifiantField = value;
+                    this.RaisePropertyChanged("Identifiant");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MotDePasse {
+            get {
+                return this.MotDePasseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MotDePasseField, value) != true)) {
+                    this.MotDePasseField = value;
+                    this.RaisePropertyChanged("MotDePasse");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Statut {
+            get {
+                return this.StatutField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatutField, value) != true)) {
+                    this.StatutField = value;
+                    this.RaisePropertyChanged("Statut");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Proprietaire", Namespace="http://schemas.datacontract.org/2004/07/MetierGestion.Model")]
+    [System.SerializableAttribute()]
+    public partial class Proprietaire : Gestion.MetierGestion.Personne {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NineaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RccmField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Ninea {
+            get {
+                return this.NineaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NineaField, value) != true)) {
+                    this.NineaField = value;
+                    this.RaisePropertyChanged("Ninea");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Rccm {
+            get {
+                return this.RccmField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RccmField, value) != true)) {
+                    this.RccmField = value;
+                    this.RaisePropertyChanged("Rccm");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Appartement", Namespace="http://schemas.datacontract.org/2004/07/MetierGestion.Model")]
     [System.SerializableAttribute()]
     public partial class Appartement : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -265,61 +454,6 @@ namespace Gestion.MetierGestion {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Proprietaire", Namespace="http://schemas.datacontract.org/2004/07/MetierGestion.Model")]
-    [System.SerializableAttribute()]
-    public partial class Proprietaire : Gestion.MetierGestion.Personne {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private Gestion.MetierGestion.Appartement[] AppartementsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NineaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RccmField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public Gestion.MetierGestion.Appartement[] Appartements {
-            get {
-                return this.AppartementsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.AppartementsField, value) != true)) {
-                    this.AppartementsField = value;
-                    this.RaisePropertyChanged("Appartements");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Ninea {
-            get {
-                return this.NineaField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NineaField, value) != true)) {
-                    this.NineaField = value;
-                    this.RaisePropertyChanged("Ninea");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Rccm {
-            get {
-                return this.RccmField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RccmField, value) != true)) {
-                    this.RccmField = value;
-                    this.RaisePropertyChanged("Rccm");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="TypeAppartement", Namespace="http://schemas.datacontract.org/2004/07/MetierGestion.Model")]
     [System.SerializableAttribute()]
     public partial class TypeAppartement : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -395,156 +529,6 @@ namespace Gestion.MetierGestion {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Personne", Namespace="http://schemas.datacontract.org/2004/07/MetierGestion.Model")]
-    [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Gestion.MetierGestion.Utilisateur))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(Gestion.MetierGestion.Proprietaire))]
-    public partial class Personne : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmailField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdPersonneField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NomPrenomField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TelephoneField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Email {
-            get {
-                return this.EmailField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
-                    this.EmailField = value;
-                    this.RaisePropertyChanged("Email");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdPersonne {
-            get {
-                return this.IdPersonneField;
-            }
-            set {
-                if ((this.IdPersonneField.Equals(value) != true)) {
-                    this.IdPersonneField = value;
-                    this.RaisePropertyChanged("IdPersonne");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string NomPrenom {
-            get {
-                return this.NomPrenomField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NomPrenomField, value) != true)) {
-                    this.NomPrenomField = value;
-                    this.RaisePropertyChanged("NomPrenom");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Telephone {
-            get {
-                return this.TelephoneField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TelephoneField, value) != true)) {
-                    this.TelephoneField = value;
-                    this.RaisePropertyChanged("Telephone");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Utilisateur", Namespace="http://schemas.datacontract.org/2004/07/MetierGestion.Model")]
-    [System.SerializableAttribute()]
-    public partial class Utilisateur : Gestion.MetierGestion.Personne {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdentifiantField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string MotDePasseField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StatutField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Identifiant {
-            get {
-                return this.IdentifiantField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.IdentifiantField, value) != true)) {
-                    this.IdentifiantField = value;
-                    this.RaisePropertyChanged("Identifiant");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string MotDePasse {
-            get {
-                return this.MotDePasseField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.MotDePasseField, value) != true)) {
-                    this.MotDePasseField = value;
-                    this.RaisePropertyChanged("MotDePasse");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Statut {
-            get {
-                return this.StatutField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.StatutField, value) != true)) {
-                    this.StatutField = value;
-                    this.RaisePropertyChanged("Statut");
-                }
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="MetierGestion.IService1")]
     public interface IService1 {
@@ -560,6 +544,36 @@ namespace Gestion.MetierGestion {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         System.Threading.Tasks.Task<Gestion.MetierGestion.CompositeType> GetDataUsingDataContractAsync(Gestion.MetierGestion.CompositeType composite);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddProprietaire", ReplyAction="http://tempuri.org/IService1/AddProprietaireResponse")]
+        bool AddProprietaire(Gestion.MetierGestion.Proprietaire proprietaire);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddProprietaire", ReplyAction="http://tempuri.org/IService1/AddProprietaireResponse")]
+        System.Threading.Tasks.Task<bool> AddProprietaireAsync(Gestion.MetierGestion.Proprietaire proprietaire);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetListeProprietaires", ReplyAction="http://tempuri.org/IService1/GetListeProprietairesResponse")]
+        Gestion.MetierGestion.Proprietaire[] GetListeProprietaires(string nom, string telephone, string email, string ninea, string rccm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetListeProprietaires", ReplyAction="http://tempuri.org/IService1/GetListeProprietairesResponse")]
+        System.Threading.Tasks.Task<Gestion.MetierGestion.Proprietaire[]> GetListeProprietairesAsync(string nom, string telephone, string email, string ninea, string rccm);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProprietaireById", ReplyAction="http://tempuri.org/IService1/GetProprietaireByIdResponse")]
+        Gestion.MetierGestion.Proprietaire GetProprietaireById(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProprietaireById", ReplyAction="http://tempuri.org/IService1/GetProprietaireByIdResponse")]
+        System.Threading.Tasks.Task<Gestion.MetierGestion.Proprietaire> GetProprietaireByIdAsync(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteProprietaire", ReplyAction="http://tempuri.org/IService1/DeleteProprietaireResponse")]
+        bool DeleteProprietaire(Gestion.MetierGestion.Proprietaire proprietaire);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteProprietaire", ReplyAction="http://tempuri.org/IService1/DeleteProprietaireResponse")]
+        System.Threading.Tasks.Task<bool> DeleteProprietaireAsync(Gestion.MetierGestion.Proprietaire proprietaire);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateProprietaire", ReplyAction="http://tempuri.org/IService1/UpdateProprietaireResponse")]
+        bool UpdateProprietaire(Gestion.MetierGestion.Proprietaire proprietaire);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateProprietaire", ReplyAction="http://tempuri.org/IService1/UpdateProprietaireResponse")]
+        System.Threading.Tasks.Task<bool> UpdateProprietaireAsync(Gestion.MetierGestion.Proprietaire proprietaire);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAppartement", ReplyAction="http://tempuri.org/IService1/AddAppartementResponse")]
         bool AddAppartement(Gestion.MetierGestion.Appartement appartement);
@@ -585,6 +599,18 @@ namespace Gestion.MetierGestion {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetListUtilisateurs", ReplyAction="http://tempuri.org/IService1/GetListUtilisateursResponse")]
         System.Threading.Tasks.Task<Gestion.MetierGestion.Utilisateur[]> GetListUtilisateursAsync(string nom, string identifiant, string email, string telephone);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUtilisateurById", ReplyAction="http://tempuri.org/IService1/GetUtilisateurByIdResponse")]
+        Gestion.MetierGestion.Utilisateur GetUtilisateurById(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetUtilisateurById", ReplyAction="http://tempuri.org/IService1/GetUtilisateurByIdResponse")]
+        System.Threading.Tasks.Task<Gestion.MetierGestion.Utilisateur> GetUtilisateurByIdAsync(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetListAppartementByUserId", ReplyAction="http://tempuri.org/IService1/GetListAppartementByUserIdResponse")]
+        Gestion.MetierGestion.Appartement[] GetListAppartementByUserId(System.Nullable<int> id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetListAppartementByUserId", ReplyAction="http://tempuri.org/IService1/GetListAppartementByUserIdResponse")]
+        System.Threading.Tasks.Task<Gestion.MetierGestion.Appartement[]> GetListAppartementByUserIdAsync(System.Nullable<int> id);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAppartementById", ReplyAction="http://tempuri.org/IService1/GetAppartementByIdResponse")]
         Gestion.MetierGestion.Appartement GetAppartementById(System.Nullable<int> id);
         
@@ -608,6 +634,12 @@ namespace Gestion.MetierGestion {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateAppartement", ReplyAction="http://tempuri.org/IService1/UpdateAppartementResponse")]
         System.Threading.Tasks.Task<bool> UpdateAppartementAsync(Gestion.MetierGestion.Appartement appartement);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUtilisateur", ReplyAction="http://tempuri.org/IService1/UpdateUtilisateurResponse")]
+        bool UpdateUtilisateur(Gestion.MetierGestion.Utilisateur utilisateur);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateUtilisateur", ReplyAction="http://tempuri.org/IService1/UpdateUtilisateurResponse")]
+        System.Threading.Tasks.Task<bool> UpdateUtilisateurAsync(Gestion.MetierGestion.Utilisateur utilisateur);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -653,6 +685,46 @@ namespace Gestion.MetierGestion {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
         
+        public bool AddProprietaire(Gestion.MetierGestion.Proprietaire proprietaire) {
+            return base.Channel.AddProprietaire(proprietaire);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddProprietaireAsync(Gestion.MetierGestion.Proprietaire proprietaire) {
+            return base.Channel.AddProprietaireAsync(proprietaire);
+        }
+        
+        public Gestion.MetierGestion.Proprietaire[] GetListeProprietaires(string nom, string telephone, string email, string ninea, string rccm) {
+            return base.Channel.GetListeProprietaires(nom, telephone, email, ninea, rccm);
+        }
+        
+        public System.Threading.Tasks.Task<Gestion.MetierGestion.Proprietaire[]> GetListeProprietairesAsync(string nom, string telephone, string email, string ninea, string rccm) {
+            return base.Channel.GetListeProprietairesAsync(nom, telephone, email, ninea, rccm);
+        }
+        
+        public Gestion.MetierGestion.Proprietaire GetProprietaireById(System.Nullable<int> id) {
+            return base.Channel.GetProprietaireById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Gestion.MetierGestion.Proprietaire> GetProprietaireByIdAsync(System.Nullable<int> id) {
+            return base.Channel.GetProprietaireByIdAsync(id);
+        }
+        
+        public bool DeleteProprietaire(Gestion.MetierGestion.Proprietaire proprietaire) {
+            return base.Channel.DeleteProprietaire(proprietaire);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteProprietaireAsync(Gestion.MetierGestion.Proprietaire proprietaire) {
+            return base.Channel.DeleteProprietaireAsync(proprietaire);
+        }
+        
+        public bool UpdateProprietaire(Gestion.MetierGestion.Proprietaire proprietaire) {
+            return base.Channel.UpdateProprietaire(proprietaire);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateProprietaireAsync(Gestion.MetierGestion.Proprietaire proprietaire) {
+            return base.Channel.UpdateProprietaireAsync(proprietaire);
+        }
+        
         public bool AddAppartement(Gestion.MetierGestion.Appartement appartement) {
             return base.Channel.AddAppartement(appartement);
         }
@@ -685,6 +757,22 @@ namespace Gestion.MetierGestion {
             return base.Channel.GetListUtilisateursAsync(nom, identifiant, email, telephone);
         }
         
+        public Gestion.MetierGestion.Utilisateur GetUtilisateurById(System.Nullable<int> id) {
+            return base.Channel.GetUtilisateurById(id);
+        }
+        
+        public System.Threading.Tasks.Task<Gestion.MetierGestion.Utilisateur> GetUtilisateurByIdAsync(System.Nullable<int> id) {
+            return base.Channel.GetUtilisateurByIdAsync(id);
+        }
+        
+        public Gestion.MetierGestion.Appartement[] GetListAppartementByUserId(System.Nullable<int> id) {
+            return base.Channel.GetListAppartementByUserId(id);
+        }
+        
+        public System.Threading.Tasks.Task<Gestion.MetierGestion.Appartement[]> GetListAppartementByUserIdAsync(System.Nullable<int> id) {
+            return base.Channel.GetListAppartementByUserIdAsync(id);
+        }
+        
         public Gestion.MetierGestion.Appartement GetAppartementById(System.Nullable<int> id) {
             return base.Channel.GetAppartementById(id);
         }
@@ -715,6 +803,14 @@ namespace Gestion.MetierGestion {
         
         public System.Threading.Tasks.Task<bool> UpdateAppartementAsync(Gestion.MetierGestion.Appartement appartement) {
             return base.Channel.UpdateAppartementAsync(appartement);
+        }
+        
+        public bool UpdateUtilisateur(Gestion.MetierGestion.Utilisateur utilisateur) {
+            return base.Channel.UpdateUtilisateur(utilisateur);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateUtilisateurAsync(Gestion.MetierGestion.Utilisateur utilisateur) {
+            return base.Channel.UpdateUtilisateurAsync(utilisateur);
         }
     }
 }

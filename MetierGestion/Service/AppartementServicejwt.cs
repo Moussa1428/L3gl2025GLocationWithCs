@@ -82,25 +82,30 @@ namespace MetierGestion.Service
         /// <returns>liste des appartements respectant les criteres</returns>
         public List<Appartement> GetListeAppartementService(string adresse, float? capacite, bool? disponible)
         {
-            var liste = db.appartements.ToList();
+            var query = db.appartements
+                .Include(a => a.Proprietaire)
+                .Include(a => a.TypeAppartement)
+                .AsQueryable();
 
-            if (!string.IsNullOrEmpty(adresse))
+            if (!string.IsNullOrWhiteSpace(adresse))
             {
-                liste = liste.Where(a => a.AdresseAppartement.ToLower().Contains(adresse.ToLower())).ToList();
+                query = query.Where(a =>
+                    a.AdresseAppartement != null &&
+                    a.AdresseAppartement.ToLower().Contains(adresse.ToLower()));
             }
 
-            if (capacite != null)
+            if (capacite.HasValue)
             {
-                liste = liste.Where(a => a.Capacite == capacite).ToList();
+                query = query.Where(a => a.Capacite == capacite.Value);
             }
 
-            if (disponible != null)
+            if (disponible.HasValue)
             {
-                liste = liste.Where(a => a.Disponible == disponible).ToList();
+                query = query.Where(a => a.Disponible == disponible.Value);
             }
-
-            return liste;
+            return query.ToList();
         }
+
 
         /// <summary>
         /// renvoie un appartement

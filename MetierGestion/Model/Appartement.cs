@@ -28,9 +28,7 @@ namespace MetierGestion.Model
 
         [ForeignKey("IdProprietaire")]
         public virtual Proprietaire Proprietaire { get; set; }
-
         public int? IdTypeAppartement { get; set; }
-
         [ForeignKey("IdTypeAppartement")]
         public virtual TypeAppartement TypeAppartement { get; set; }
     }

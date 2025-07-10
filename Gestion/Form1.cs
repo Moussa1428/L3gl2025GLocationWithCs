@@ -61,7 +61,7 @@ namespace Gestion
                                    var leGes = db.Gestionnaires.Find(leuser.IdPersonne);
                                     if (le != null)
                                     {
-                                        f.profil = "Gestionnaire";
+                                        f.profil = "Admin";
                                     }
                                 }
 
@@ -87,6 +87,11 @@ namespace Gestion
            
             
             
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Application.Exit(); 
         }
     }
 }
